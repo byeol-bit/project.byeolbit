@@ -1,19 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../css/ReviewPage.css';
 import ReviewBox from '../Component/ReviewBox';
-import reviewList from '../tempDataFolder/review_list.js';
+import axios from 'axios';
 
 function ReviewPage() {
+  let [_review, setReview] = useState(null);
 
-  let arr = reviewList;
+  useEffect(()=>{
+    axios.get('http://localhost:3000/api/review/category')
+    .then((res)=>{
+      setReview(res.data);
+    })
+  }, []);
+
+
+  console.log(_review);
 
   return (
     <div className="review-wrap">
       <ul>
         {
-          arr.map((item, i)=>{
+          _review
+          ? _review.map((item, i)=>{
             return <ReviewBox list={item} key={i}></ReviewBox>
           })
+          : <div>Loading...</div>
 
         }
       </ul>

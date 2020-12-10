@@ -15,7 +15,7 @@ function ReviewBox(props) {
           <div className="avg-wrap">
             <strong>사용자 총 평점</strong>
             <div className="star-point"></div>
-            <span>{props.list.s_point} / 5.0</span>
+            <span>{props.list.star_rate} / 5.0</span>
             <hr/>
           </div>
         </div>

@@ -27,6 +27,8 @@ function App() {
     element[0].style.maxHeight = window.innerHeight + "px";
   });
   let element = document.getElementsByClassName('wrap');
+  let [_data, setData] = useState();
+
 
   return (
     <div className="App">
