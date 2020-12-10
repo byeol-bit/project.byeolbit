@@ -20,6 +20,9 @@ import MainPage from './View/MainPage';
 
 function App() {
 
+  useEffect(()=>{
+    element[0].style.maxHeight = window.innerHeight + "px";
+  });
   window.addEventListener('resize', ()=>{
     element[0].style.maxHeight = window.innerHeight + "px";
   });
