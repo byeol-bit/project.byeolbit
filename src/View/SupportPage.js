@@ -11,7 +11,7 @@ function SupportPage() {
 
 
   return (
-    <section className="conbox">
+    <section className="supview-wrap">
       <div className="title">
         <h2>고객센터</h2>
         <p>문의 전 <span>자주 묻는 질문</span>을 확인해 주세요! <br/>

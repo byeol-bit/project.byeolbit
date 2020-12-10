@@ -12,12 +12,12 @@
 
 
 /*SupportPage*/
-.conbox{width: 800px; margin-top: 80px; height: 100%; margin: auto;}
-.conbox .title{width: 800px; margin-top: 80px; position: relative;}
-.conbox .title h2{font-size: 23px; font-weight: bold; text-align: left;}
-.conbox .title p{font-size: 15px; text-align: left; margin-top: 10px; color: #848484;}
-.conbox .title span{font-weight: bold; color: red; font-size: 17px;}
-.conbox .title button{position: absolute; right:0; margin: -60px 30px 0 0; color: #fff; background: black; border-radius: 5px; padding: 7px;}
+.supview-wrap{width: 800px; margin-top: 80px; height: 100%; margin: auto;}
+.supview-wrap .title{width: 800px; margin-top: 80px; position: relative;}
+.supview-wrap .title h2{font-size: 23px; font-weight: bold; text-align: left;}
+.supview-wrap .title p{font-size: 15px; text-align: left; margin-top: 10px; color: #848484;}
+.supview-wrap .title span{font-weight: bold; color: red; font-size: 17px;}
+.supview-wrap .title button{position: absolute; right:0; margin: -60px 30px 0 0; color: #fff; background: black; border-radius: 5px; padding: 7px;}
 .content_wrap{width: 800px; margin-top: 50px;}
 
 /*nav*/
