@@ -1,0 +1,9 @@
+.comment-title{width: 100%; position: relative; text-align: left;}
+.comment-title div{display: inline-block; vertical-align: middle;}
+.comment-title #sumnail-wrap {width: 50px; height: 50px; border-radius: 50%;}
+.comment-title #sumnail-wrap img{width: 100%; height: 100%;}
+.comment-title #user-wrap #comment-id{font-size: 14px; color: #000;}
+.comment-title #user-wrap #comment-star-rate{width: 80px; height: 20px;}
+.comment-title #date-wrap{display: block;}
+.comment-title #date-wrap span{font-size: 13px; color: #BDBDBD;}
+.comment-desc {background: #D8D8D8; border-radius: 5px; margin-right: 10%; margin-left: 50px; padding: 20px; text-align: left;}
