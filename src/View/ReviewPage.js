@@ -22,7 +22,7 @@ function ReviewPage() {
         {
           _review
           ? _review.map((item, i)=>{
-            return <ReviewBox list={item} key={i}></ReviewBox>
+            return <ReviewBox list={item} index={i} key={i}></ReviewBox>
           })
           : <div>Loading...</div>
 

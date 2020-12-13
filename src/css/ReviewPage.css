@@ -1,14 +1,2 @@
-@charset "utf-8";
-@import url(https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css);
-
-
-/*layout*/
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'nanumsquare';
-}
-
 .review-wrap {width: 1200px; height: 100%; margin: 0 auto; background: #eee;}
 .review-wrap li{display: inline-block; padding: 20px;}
