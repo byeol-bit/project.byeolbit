@@ -1,30 +1,50 @@
-import {useState} from 'react';
-import '../css/ReviewBox.css';
+import {useState, useEffect} from 'react';
+import '../css/ReviewBox.scss';
+import axios from 'axios';
 import UserCommentBox from '../Component/UserCommentBox';
+import ReviewTextBox from '../Component/ReviewTextBox';
 import star_empty from '../assets/images/star_empty.png';
 import star_half from '../assets/images/star_half.png';
 import star_full from '../assets/images/star_full.png';
 
 function ReviewBox(props) {
+  let element = document.getElementsByClassName('review-list');
+  let [comments, setComments] = useState();
+  let reviewbox;
 
-  function displaySizeChange(index){
-    let element = document.getElementsByClassName('review-list');
-    for(let i = 0; i < element.length; i++){
-      if(index === i){
-        element[i].firstElementChild.classList.add('on');
-        element[i].firstElementChild.classList.remove('small');
-        continue;
+  useEffect(()=>{
+    axios.get('http://localhost:3000/api/review_detail', {params: {category: props.list.category}})
+    .then((res)=>{
+      setComments(res.data);
+    })
+  }, []);
+  function displaySizeChange(){
+    reviewbox = element[props.index].firstElementChild;
+
+    if(reviewbox.classList.contains('on')){
+      for(let i = 0; i < element.length; i++){
+        reviewbox = element[i].firstElementChild;
+        reviewbox.classList.remove('small');
+        reviewbox.classList.remove('on');
       }
-      element[i].firstElementChild.classList.remove('on');
-      element[i].firstElementChild.classList.add('small');
+    }else{
+      for(let i = 0; i < element.length; i++){
+        reviewbox = element[i].firstElementChild;
+          if(props.index === i){
+            reviewbox.classList.add('on');
+            reviewbox.classList.remove('small');
+            continue;
+          }
+          reviewbox.classList.remove('on');
+          reviewbox.classList.add('small');
+      }
     }
-    console.log(element);
   }
 
   return (
     <li className="review-list">
       <div className="riview-box">
-        <div onClick={()=> {displaySizeChange(props.index)}} className="review-overwrap"> </div>
+        <div onClick={displaySizeChange} className="review-overwrap"> </div>
         <div className="review-sumnail">
           <strong>{props.list.category}</strong>
         </div>
@@ -33,13 +53,19 @@ function ReviewBox(props) {
           <div className="avg-wrap">
             <strong>사용자 총 평점</strong>
             <StarRate star_rate={props.list.star_rate}></StarRate>
-            <span>{props.list.star_rate} / 5.0</span>
+            <span className="star-rate">{props.list.star_rate} / 5.0</span>
           </div>
           <div className="user-comments-wrap">
-            <UserCommentBox></UserCommentBox>
-            <UserCommentBox></UserCommentBox>
-            <UserCommentBox></UserCommentBox>
-            <UserCommentBox></UserCommentBox>
+            {
+              comments
+              ? comments.map((item, i)=>{
+                return <UserCommentBox comment={item}></UserCommentBox>
+              })
+              : <div>Loading...</div>
+            }
+          </div>
+          <div className="user-textbox-wrap">
+            <ReviewTextBox index={props.index} category={props.list.category}></ReviewTextBox>
           </div>
         </div>
       </div>

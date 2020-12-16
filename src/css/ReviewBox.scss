@@ -1,6 +1,6 @@
 /*reviewBox*/
-.riview-box{width: 300px; height: 600px; background: #fff; position: relative; cursor: pointer; border-radius: 5px;}
-.riview-box .review-overwrap{position: absolute; width:100%; height: 100%;}
+.riview-box{width: 300px; height: 600px; background: #fff; position: relative; border-radius: 5px;}
+.riview-box .review-overwrap{position: absolute; width:100%; height: 100%; cursor: pointer;}
 .riview-box .review-sumnail{width: 100%; height: 200px; background: #777777; padding-top: 60px; border-top-left-radius: 5px; border-top-right-radius: 5px;}
 .riview-box .review-sumnail strong{font-size: 40px; color: #fff; font-weight: 600;}
 .riview-box .review-sumnail strong::after{display: block; content: ""; width: 42px; height: 42px; background: url(../jarr2.png) no-repeat center center; background-size: cover; margin: -48px 0 0 48px;}
@@ -8,12 +8,15 @@
 .riview-box .review-description .avg-wrap{width: 100%; height: 120px; border-bottom: 1px solid #BDBDBD;}
 .riview-box .review-description .star-rate{padding: 10px;width: 100%;}
 .riview-box .review-description .star-rate img{width: 40px; height: 40px; margin-right: 5px;}
-.riview-box .review-description .user-comments-wrap{width:100%; height: 260px;}
-.riview-box .review-description span{font-size: 19px; font-weight: 550; color: #FACC2E;}
+.riview-box .review-description .user-comments-wrap{display: none;}
+.riview-box .user-textbox-wrap{display: none;}
 
 /*reviewBox on*/
-.riview-box.on{width: 1100px; height: 1000px;}
-.riview-box.on .review-description .user-comments-wrap{width:100%; height: 660px;}
+.riview-box.on{width: 1100px; height: 1200px;}
+.riview-box.on .review-description .user-comments-wrap{width:100%; height: 660px; display: block; overflow-y: auto;}
+.riview-box.on .review-overwrap{height:200px;}
+.riview-box.on .user-textbox-wrap{width: 100%; height:200px; margin: 0; display: block;}
+.riview-box.on .review-description .star-rate{font-size: 19px; font-weight: 550; color: #FACC2E;}
 
 /*reviewBox small*/
 .riview-box.small{width: 100px; height: 200px; position: relative; cursor: pointer; background: #fff;}
@@ -27,3 +30,4 @@
 .riview-box.small .review-description .star-rate img{width: 13px; height: 13px; margin-right: 1px;}
 .riview-box.small .review-description .user-comments-wrap{width:100%; height: 85px; display: none;}
 .riview-box.small .review-description span{font-size: 0;}
+.riview-box.small .user-textbox-wrap{display: none;}

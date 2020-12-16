@@ -1,0 +1,77 @@
+.textbox-wrap{
+  width: 870px;
+  position: relative;
+  margin-top:10px;
+  margin-left: 50px;
+  padding-top: 10px;
+  border-top: 1px solid #BDBDBD;
+
+  .comment-icon-wrap{
+    position: absolute;
+    left: 12px;
+
+    .file-upload-wrap{
+    display: inline-block;
+
+      cursor: pointer;
+
+      .file-upload{
+        width: 33px;
+        height: 28px;
+        background: url(../assets/images/review_camera.png) no-repeat;
+        background-size: contain;
+        display: inline-block;
+
+        input[type="file"]{
+          display: none;
+        }
+      }
+
+
+    }
+
+    .star-rate-1, .star-rate-2, .star-rate-3, .star-rate-4, .star-rate-5{
+      display: inline-block;
+      width: 24px;
+      height: 23px;
+      background: url(../assets/images/star_empty.png) no-repeat;
+      background-size: contain;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+
+    span{
+      display: inline-block;
+      position: absolute;
+      font-size: 15px;
+      width: 90px;
+      height: 33px;
+      top: 6px;
+    }
+  }
+
+
+  .comment{
+    margin-top: 30px;
+    width: 850px; height: 120px;
+    overflow-y: auto;
+    border: 1px solid #afafaf;
+    border-radius: 5px;
+  }
+
+  .comment-length{
+    display: inline-block;
+  }
+
+  button{
+    margin: 5px 10px 0 0;
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height:30px;
+    border-radius: 15px;
+    border: 1px solid;
+    color: #000;
+    cursor: pointer;
+  }
+}

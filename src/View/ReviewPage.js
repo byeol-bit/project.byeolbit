@@ -13,9 +13,6 @@ function ReviewPage() {
     })
   }, []);
 
-
-  console.log(_review);
-
   return (
     <div className="review-wrap">
       <ul>

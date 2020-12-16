@@ -1,2 +1,3 @@
-.review-wrap {width: 1200px; height: 100%; margin: 0 auto; background: #eee;}
+.review-wrap {width: 100%; height: 100%; background: #eee;}
+.review-wrap ul{width: 1200px; margin: 0 auto;}
 .review-wrap li{display: inline-block; padding: 20px;}
