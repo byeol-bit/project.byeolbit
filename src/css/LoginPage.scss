@@ -1,0 +1,22 @@
+.login-wrap{
+
+  .login-form{
+    margin:auto;
+    width: 400px;
+    height: 400px;
+    background: #eee;
+
+    #user-id{
+      width: 150px;
+      height: 25px;
+      background: #fff;
+      margin: 10px auto;
+    }
+    #user-pw{
+      width: 150px;
+      height: 25px;
+      background: #fff;
+      margin:auto;
+    }
+  }
+}
