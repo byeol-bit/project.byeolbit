@@ -59,7 +59,7 @@ function ReviewBox(props) {
             {
               comments
               ? comments.map((item, i)=>{
-                return <UserCommentBox comment={item}></UserCommentBox>
+                return <UserCommentBox comment={item} key={i}></UserCommentBox>
               })
               : <div>Loading...</div>
             }
