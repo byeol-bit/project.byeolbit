@@ -1,22 +1,81 @@
 .login-wrap{
+  margin-top: 350px;
 
   .login-form{
-    margin:auto;
-    width: 400px;
-    height: 400px;
-    background: #eee;
+    position: relative;
+    width: 700px;
+    height: 120px;
+    margin:50px auto;
+    padding: 10px;
 
     #user-id{
-      width: 150px;
-      height: 25px;
+      width: 350px;
+      height: 40px;
       background: #fff;
       margin: 10px auto;
+      border-bottom: 1px solid;
+
+      input{
+        width: 100%;
+        height: 100%;
+        color:#595f6e;
+        border:none;
+        padding: 10px;
+      }
     }
     #user-pw{
-      width: 150px;
-      height: 25px;
+      width: 350px;
+      height: 40px;
       background: #fff;
-      margin:auto;
+      margin: 10px auto;
+      border-bottom: 1px solid;
+
+      input{
+        width: 100%;
+        height: 100%;
+        color:#595f6e;
+        border:none;
+        padding: 10px;
+      }
     }
+
+    button{
+      position: absolute;
+      width: 120px;
+      height: 90px;
+      background: #000;
+      right:30px;
+      top: 20px;
+      color:#fff;
+      font-weight: bold;
+    }
+  }
+
+  #find-id{
+    font-size: 16px;
+    cursor:pointer;
+    margin-right: 40px;
+  }
+  #find-id:hover{
+    color:#2E64FE;
+    font-weight: 600;
+  }
+
+  #sign-up{
+    font-size: 16px;
+    cursor:pointer;
+    margin-left: 40px;
+  }
+  #sign-up:hover{
+    color:#2E64FE;
+    font-weight: 600;
+  }
+
+  .other-login{
+    padding: 20px;
+    width: 700px;
+    height: 120px;
+    margin: 60px auto;
+    border-top: 1px solid #A4A4A4;
   }
 }

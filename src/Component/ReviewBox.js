@@ -72,7 +72,6 @@ function ReviewBox(props) {
     </li>
   )
 }
-
 function StarRate(props){
   let starRate = props.star_rate;
 

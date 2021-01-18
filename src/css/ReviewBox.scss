@@ -3,7 +3,7 @@
 .riview-box .review-overwrap{position: absolute; width:100%; height: 100%; cursor: pointer;}
 .riview-box .review-sumnail{width: 100%; height: 200px; background: #777777; padding-top: 60px; border-top-left-radius: 5px; border-top-right-radius: 5px;}
 .riview-box .review-sumnail strong{font-size: 40px; color: #fff; font-weight: 600;}
-.riview-box .review-sumnail strong::after{display: block; content: ""; width: 42px; height: 42px; background: url(../jarr2.png) no-repeat center center; background-size: cover; margin: -48px 0 0 48px;}
+.riview-box .review-sumnail strong::after{display: block; content: ""; width: 42px; height: 42px; background: url(../assets/images/jarr2.png) no-repeat center center; background-size: cover; margin: -48px 0 0 48px;}
 .riview-box .review-description{width: 95%; height: 400px; padding: 10px; margin: 0 auto;}
 .riview-box .review-description .avg-wrap{width: 100%; height: 120px; border-bottom: 1px solid #BDBDBD;}
 .riview-box .review-description .star-rate{padding: 10px;width: 100%;}
@@ -22,7 +22,7 @@
 .riview-box.small{width: 100px; height: 200px; position: relative; cursor: pointer; background: #fff;}
 .riview-box.small .review-sumnail{width: 100%; height: 66px; background: #777777; padding-top: 20px;}
 .riview-box.small .review-sumnail strong{font-size: 13px; color: #fff; font-weight: 600;}
-.riview-box.small .review-sumnail strong::after{display: block; content: ""; width: 14px; height: 14px; background: url(../jarr2.png) no-repeat center center; background-size: cover; margin: -16px 0 0 16px;}
+.riview-box.small .review-sumnail strong::after{display: block; content: ""; width: 14px; height: 14px; background: url(../assets/images/jarr2.png) no-repeat center center; background-size: cover; margin: -16px 0 0 16px;}
 .riview-box.small .review-description{width: 95%; height: 133px; padding: 3px; margin: 0 auto;}
 .riview-box.small .review-description .avg-wrap{width: 100%; height: 40px; border-bottom: 1px solid #BDBDBD; line-height: 1.2;}
 .riview-box.small .review-description .avg-wrap strong{font-size: 10px;}
