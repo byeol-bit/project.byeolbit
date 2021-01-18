@@ -1,14 +1,25 @@
-import { useState } from 'react';
-import '../css/MainPage.css';
+import { useState, useEffect } from 'react';
+import '../css/MainPage.scss';
+import axios from 'axios';
 //Component
-import Items from '../Component/Item';
-
-import best_item_list from '../tempDataFolder/best_item_list.js';
+import Items from '../Component/Items';
 
 function MainPage() {
 
-  let itemlist = best_item_list;
-  let lastNum = itemlist.length;
+  let [items, setItems] = useState([]);
+
+  useEffect(() =>{
+    console.log('메인페이지 작동!');
+    axios.get('http://localhost:3000/api/best-products', {})
+    .then((res)=>{
+      if(res.data.success){
+        console.log('메인페이지 데이터');
+        setItems(res.data.list);
+      }
+    })
+    .catch()
+  }, []);
+  let lastNum = items.length;
   let count = 3;
   let element = document.getElementsByClassName('bestitem');
   let btn_more = document.getElementsByClassName('btn-more');
@@ -28,7 +39,12 @@ function MainPage() {
       </div>
       <h2>베스트 상품</h2>
       <section className="bestitem">
-        <Items list={itemlist}></Items>
+      {
+        items
+        ? <Items list={items}></Items>
+        :  null
+      }
+
       </section>
       <button className="btn-more" onClick={ buttonClick1 }>더보기</button>
 

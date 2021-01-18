@@ -11,7 +11,7 @@ function ReviewTextBox(props) {
   let [starrate, setStarRate] = useState(0);
   let [checked, isChecked] = useState(false);
   // 이미지 파일 관련 변수
-  let [content, setContent] = useState({ files: []});
+  const [content, setContent] = useState([]);
   let [uploadedImg, setUploadedImg] = useState([]);
 
   function mouseEnter(index){
@@ -54,32 +54,53 @@ function ReviewTextBox(props) {
           // do nothing
         }
       }
-
-
-
   }
   function handleSubmit(e){
     let commentval = document.getElementsByClassName('comment')[props.index];
-    // e.preventDefault();
-    axios.post('http://localhost:3000/api/review_detail/add', {
-          star:starrate,
-          comment:comment,
-          category:props.category
-    }).then((res)=>{
-      // 초기화 작업
-      commentval.value = "";
-      isChecked(false);
-      setComment(null);
-      setStarRate(0);
+    //e.preventDefault();
+
+    let upload = content.map((picture, i)=>{
+      let formData = new FormData();
+      formData.append('file', picture);
+      return axios.post('http://localhost:3000/api/review_detail/uploadImgtoS3', formData);
+    });
+
+    axios.all(upload)
+    .then((res)=>{
+      // s3에 저장된 이미지 url 배열.
+      let photoes = '';
+      for(let i = 0; i < res.length; i++){
+        photoes += res[i].data.desc;
+
+        if(res.length -1 !== i) photoes += ','
+      }
+
+      // add db
+      axios.post('http://localhost:3000/api/review_detail/add', {
+            star:starrate,
+            comment:comment,
+            category:props.category,
+            photo:photoes
+      }).then((res)=>{
+        // 초기화 작업
+        commentval.value = "";
+        isChecked(false);
+        setComment(null);
+        setStarRate(0);
+      }).catch((err)=>{
+        console.log(err);
+      })
+
     }).catch((err)=>{
       console.log(err);
-      throw new Error(err);
     })
+
+
   }
   function imgChange(e){
     var files = e.target.files;
     var fileArr = Array.prototype.slice.call(files);
-    setContent({ files: [...content.files, ...fileArr]});
+    setContent((prev)=> [...fileArr, ...prev]);
 
     // 같은 파일 다시 올리게 할 수 있는 작업
     e.target.value = null;
@@ -87,48 +108,48 @@ function ReviewTextBox(props) {
     // 파일 올라갈 시 파일 미리보기 화면 보이게 style 변경
     document.getElementsByClassName('image-preview')[props.index].style.display = "block";
 
+    let arr = [];
     fileArr.map((file)=>{
       let reader = new FileReader();
-      reader.onloadend = e => {
-
+      reader.onload = e => {
         let img = reader.result;
-        let arr = uploadedImg;
-        arr.push(img);
-        setUploadedImg(arr);
+        //arr.push(img);
+        setUploadedImg((prev) => [img, ...prev]);
       }
       reader.readAsDataURL(file);
     });
+
   }
-  function closeImgMouseHover(flag){
+  function closeImgMouseHover(flag, i){
 
     let previewBox = document.getElementsByClassName('image-preview')[props.index];
 
     if(flag === 'in'){
-      previewBox.firstElementChild.style.border = "1px solid #eee";
-      previewBox.firstElementChild.firstElementChild.style.width = "18px";
-      previewBox.firstElementChild.firstElementChild.style.height = "18px";
+      previewBox.childNodes[i].style.border = "1px solid #eee";
+      previewBox.childNodes[i].firstElementChild.style.width = "18px";
+      previewBox.childNodes[i].firstElementChild.style.height = "18px";
     }
     else if(flag === 'out'){
-      previewBox.firstElementChild.style.border = "";
-      previewBox.firstElementChild.firstElementChild.style.width = "17px";
-      previewBox.firstElementChild.firstElementChild.style.height = "17px";
+      previewBox.childNodes[i].style.border = "";
+      previewBox.childNodes[i].firstElementChild.style.width = "17px";
+      previewBox.childNodes[i].firstElementChild.style.height = "17px";
     }
 
   }
   function closeImgClick(index){
     let uploadImgArr = uploadedImg;
     let contentArr = content;
+    console.log('contentArr' + uploadedImg);
+    console.log('uploadImgArr' + content);
+    return;
     uploadImgArr.splice(index, 1);
-    contentArr.files.splice(index, 1);
+    contentArr.splice(index, 1);
 
     if(uploadImgArr.length == 0)
       document.getElementsByClassName('image-preview')[props.index].style.display = "none";
 
-    console.log(document.getElementsByClassName('file-upload')[props.index].firstElementChild.value);
-    setContent(contentArr);
-    setUploadedImg(uploadImgArr);
-    console.log(content);
-    console.log(uploadedImg);
+    setContent((prev) => contentArr);
+    setUploadedImg((prev) => uploadImgArr);
   }
 
 
@@ -156,8 +177,8 @@ function ReviewTextBox(props) {
         {
           uploadedImg
           ? uploadedImg.map((item, i)=>{
-              return <div style={{width:'52px', height:'52px', position: 'relative'}} key={i}>
-                       <img style={{position:'absolute', width: '17px', height:'17px', right:'0', margin:'-5px -5px 0 0'}} src={close} onMouseEnter={()=>{closeImgMouseHover('in')}} onMouseLeave={()=>{closeImgMouseHover('out')}} onClick={()=>{closeImgClick(i)}}/>
+              return <div style={{width:'52px', height:'52px', position: 'relative', display:'inline-block', marginLeft:'5px'}} key={i}>
+                       <img style={{position:'absolute', width: '17px', height:'17px', right:'0', margin:'-5px -5px 0 0'}} src={close} onMouseEnter={()=>{closeImgMouseHover('in', i)}} onMouseLeave={()=>{closeImgMouseHover('out', i)}} onClick={()=>{closeImgClick(i)}}/>
                        <img style={{width: '50px', height: '50px'}} src={item}/>
                      </div>
           })

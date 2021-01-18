@@ -1,10 +1,12 @@
 const mysql = require('mysql');
+require('dotenv').config();
+
 const connection = mysql.createPool({
-    host: 'byeol-bit-db.ci8ju2bnrarr.ap-northeast-2.rds.amazonaws.com',
+    host: process.env.DB_HOST,
     port: '3306',
-    user: 'admin',
-    password: 'tkd!tjs23',
-    database: 'byeolbitdb'
+    user: process.env.DB_USER,
+    password: process.env.DB_PW,
+    database: process.env.DB_DATABASE
   }
 );
 
