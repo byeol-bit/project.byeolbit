@@ -73,7 +73,17 @@ function setTime(state = new Date(), action){
   return getTimeStamp(state);
 }
 
-let store = createStore(combineReducers({setUser, setTime}));
+const orderList = [];
+
+function setOrderList(state = orderList, action){
+  if(action.type === 'setList'){
+    let temp = action.payload;
+    return temp;
+  }
+  return state;
+}
+
+let store = createStore(combineReducers({setUser, setTime, setOrderList}));
 
 ReactDOM.render(
   <React.StrictMode>

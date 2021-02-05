@@ -37,7 +37,7 @@ function Item(props){
   return (
     <li className="item_list">
       <div className="item">
-        <Link to="/detail/1"><img src={props.item.product_sumnail}/></Link>
+        <Link to={`/detail/${props.item.product_no}`}><img src={props.item.product_sumnail}/></Link>
       </div>
       <div className="description">
         <h6>{ props.item.product_subname }</h6>

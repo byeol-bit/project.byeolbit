@@ -21,7 +21,25 @@ import SupportPage from './View/SupportPage';
 import CartPage from './View/CartPage';
 import MenuPage from './View/MenuPage';
 import MainPage from './View/MainPage';
+import OrderPage from './View/OrderPage';
+
+// product detail pages
 import DetailPage1 from './View/DetailPage1';
+import DetailPage2 from './View/DetailPage2';
+import DetailPage3 from './View/DetailPage3';
+import DetailPage4 from './View/DetailPage4';
+import DetailPage5 from './View/DetailPage5';
+import DetailPage6 from './View/DetailPage6';
+import DetailPage7 from './View/DetailPage7';
+import DetailPage8 from './View/DetailPage8';
+import DetailPage9 from './View/DetailPage9';
+import DetailPage10 from './View/DetailPage10';
+import DetailPage11 from './View/DetailPage11';
+import DetailPage12 from './View/DetailPage12';
+import DetailPage13 from './View/DetailPage13';
+import DetailPage14 from './View/DetailPage14';
+import DetailPage15 from './View/DetailPage15';
+import DetailPage16 from './View/DetailPage16';
 
 //icon
 import cart from './assets/images/icon_cart.png';
@@ -33,7 +51,8 @@ function App(props) {
     console.log('메인페이지');
     console.log('메인페이지 유저정보',props.user);
     element[0].style.maxHeight = window.innerHeight + "px";
-  });
+  }, []);
+
   useEffect(()=>{
     let token = document.cookie.split('=')[1];
     if(token === undefined || token === null) return;
@@ -60,9 +79,12 @@ function App(props) {
     .catch()
   }, []);
 
-  window.addEventListener('resize', ()=>{
-    element[0].style.maxHeight = window.innerHeight + "px";
-  });
+  useEffect(()=>{
+    window.addEventListener('resize', ()=>{
+      element[0].style.maxHeight = window.innerHeight + "px";
+    });
+  }, []);
+
 
   let element = document.getElementsByClassName('wrap');
   let [_data, setData] = useState();
@@ -152,12 +174,60 @@ function App(props) {
                 <CartPage></CartPage>
               </Route>
 
-              <Route path="/menu">
-                <MenuPage></MenuPage>
+              <Route path="/order">
+                <OrderPage></OrderPage>
               </Route>
 
+
+
+              // detail pages
               <Route path="/detail/1">
                 <DetailPage1></DetailPage1>
+              </Route>
+              <Route path="/detail/2">
+                <DetailPage2></DetailPage2>
+              </Route>
+              <Route path="/detail/3">
+                <DetailPage3></DetailPage3>
+              </Route>
+              <Route path="/detail/4">
+                <DetailPage4></DetailPage4>
+              </Route>
+              <Route path="/detail/5">
+                <DetailPage5></DetailPage5>
+              </Route>
+              <Route path="/detail/6">
+                <DetailPage6></DetailPage6>
+              </Route>
+              <Route path="/detail/7">
+                <DetailPage7></DetailPage7>
+              </Route>
+              <Route path="/detail/8">
+                <DetailPage8></DetailPage8>
+              </Route>
+              <Route path="/detail/9">
+                <DetailPage9></DetailPage9>
+              </Route>
+              <Route path="/detail/10">
+                <DetailPage10></DetailPage10>
+              </Route>
+              <Route path="/detail/11">
+                <DetailPage11></DetailPage11>
+              </Route>
+              <Route path="/detail/12">
+                <DetailPage12></DetailPage12>
+              </Route>
+              <Route path="/detail/13">
+                <DetailPage13></DetailPage13>
+              </Route>
+              <Route path="/detail/14">
+                <DetailPage14></DetailPage14>
+              </Route>
+              <Route path="/detail/15">
+                <DetailPage15></DetailPage15>
+              </Route>
+              <Route path="/detail/16">
+                <DetailPage16></DetailPage16>
               </Route>
             </Switch>
         </section>

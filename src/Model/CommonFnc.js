@@ -22,3 +22,11 @@ function leadingZeros(n, digits){
 
   return zero + n;
 }
+
+exports.onlyNumber = function onlyNumber(e) {
+  e.target.value=e.target.value.replace(/[^0-9]/g,'');
+}
+
+exports.setComma = function setComma(value){
+  return (value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
