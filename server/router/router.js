@@ -291,7 +291,7 @@ router.get('/best-products', (req, res)=>{
 });
 
 router.get('/products', (req, res)=>{
-
+  console.log('/products 도착!');
   db.query('select * from product', (err, rows)=>{
     if(!err){
       res.json({success:true, list:rows});
@@ -301,7 +301,22 @@ router.get('/products', (req, res)=>{
   });
 });
 
+router.get('/product', (req, res)=>{
+  console.log('/product 도착!');
+  var product_no = Number(req.query.procno);
+  var params = [product_no];
+
+  db.query('select * from product where product_no=?', params, (err, rows)=>{
+    if(!err){
+      res.json({success:true, product:rows});
+    }else{
+      console.log(err);
+    }
+  });
+});
+
 router.get('/review/category', (req, res)=>{
+  console.log('/review/category 도착!');
   db.query('select * from review', (err, rows)=>{
     if(!err){
       res.json(rows);
@@ -362,6 +377,81 @@ router.post('/review_detail/add', (req, res)=>{
       console.log(err);
     }
   });
+});
+
+router.get('/cart_detail', (req, res)=>{
+  console.log('cart_detail 도착!');
+  var cartid = Number(req.query.cartid);
+  var params = [cartid];
+  var sql = "select * from cart_detail where cart_no=? order by cart_create_date desc";
+  db.query(sql, params, (err, rows)=>{
+    if(!err){
+      res.json({success:true, list:rows});
+    }else{
+      console.log(err);
+    }
+  });
+});
+
+router.post('/cart/add', (req, res)=>{
+  console.log('cart/add 도착!');
+  var userid = req.body.userid;
+  var currentTime = new Date();
+
+
+  var sql = 'insert into cart (user_id, cart_create_date) values(?, ?)';
+  var params = [userid, currentTime];
+  db.query(sql, params, (err, result)=>{
+    if(!err){
+      res.send({success:true, cartid:result.insertId});
+    }else{
+      console.log(err);
+    }
+  });
+});
+
+router.post('/cart_detail/add', (req, res)=>{
+  console.log('cart_detail/add 도착!');
+  var cartId = req.body.cartId;
+  var procNo = Number(req.body.procNo);
+  var procName = req.body.procName;
+  var procPrice = req.body.procPrice;
+  var procCount = req.body.procCount;
+  var currentTime = new Date();
+
+
+  var sql = 'insert into cart_detail (cart_no, product_no, product_name, product_price, product_count, cart_create_date) values(?, ?, ?, ?, ?, ?)';
+  var params = [cartId, procNo, procName, procPrice, procCount, currentTime];
+  db.query(sql, params, (err, result)=>{
+    if(!err){
+      res.send({success:true});
+    }else{
+      console.log(err);
+    }
+  });
+});
+
+router.post('/cart_detail/delete', (req, res)=> {
+  console.log('cart_detail/delete 도착!');
+  var cartId = req.body.cartId;
+  var list = req.body.list;
+  var success = false;
+
+    db.beginTransaction((err)=>{
+      var sql = 'delete from cart_detail where cart_no = ? and product_no = ?';
+      var params = [];
+
+      for(let i = 0; i < list.length; i++){
+        params = [cartId, list[i]];
+        db.query(sql, params, (e, result)=>{
+          if(e) db.rollback();
+        });
+      }
+
+      db.commit();
+      success = true;
+      res.send({success:success});
+    });
 });
 
 module.exports = router;

@@ -41,6 +41,9 @@ function LoginPage(props) {
       console.log(err);
     });
   }
+  function btnOrder() {
+    history.push('/order');
+  }
 
   return (
     <div className="login-wrap">
@@ -65,6 +68,10 @@ function LoginPage(props) {
 
       <div className="other-login">
         <span>SNS로 간편 로그인 · 회원가입</span>
+      </div>
+
+      <div className="non-user-order">
+        <button onClick={btnOrder}>비회원 주문하기</button>
       </div>
     </div>
   )

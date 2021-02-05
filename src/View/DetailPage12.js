@@ -1,98 +1,12 @@
 import { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import axios from 'axios';
-import {connect} from 'react-redux';
 import '../css/DetailPage.scss';
 import testimg from '../assets/images/test-img.png';
 import cnt_bg2 from '../assets/images/cnt_bg2.png';
 
 
-function DetailPage1(props){
+function DetailPage(){
 
-  let history = useHistory();
   let [orderCount, setOrderCount] = useState(1);
-
-  function btnCartClick() {
-    var cartid = localStorage.getItem('cartid');
-    var procCount = orderCount;
-
-    let userid = 'user01';
-    if(props.user.isLogin) userid = props.user.id;
-
-
-    if(cartid === null){
-      axios.post('http://localhost:3000/api/cart/add', {userid:userid})
-      .then((res)=>{
-        if(res.data.success){
-          localStorage.setItem('cartid', res.data.cartid);
-          cartid = localStorage.getItem('cartid');
-
-          axios.post('http://localhost:3000/api/cart_detail/add',
-            {
-              cartId:cartid,
-              procNo:1,
-              procName:'별빛담은 청국장',
-              procPrice:'3500',
-              procCount:procCount
-            })
-          .then((res)=>{
-            if(res.data.success){
-              var saveCart = window.confirm('장바구니에 추가되었습니다. 이동하시겠습니까?');
-
-              if(saveCart){
-                history.push("/cart");
-              }else{
-
-              }
-            }else{
-
-            }
-
-          })
-          .catch()
-        }
-        else{
-
-        }
-      })
-      .catch()
-    }else{
-      console.log('11');
-      axios.post('http://localhost:3000/api/cart_detail/add',
-        {
-          cartId:cartid,
-          procNo:1,
-          procName:'별빛담은 청국장',
-          procPrice:'3500',
-          procCount:procCount
-        })
-      .then((res)=>{
-        if(res.data.success){
-          var saveCart = window.confirm('장바구니에 추가되었습니다. 이동하시겠습니까?');
-
-          if(saveCart){
-            history.push("/cart");
-          }else{
-
-          }
-        }else{
-
-        }
-    })
-    .catch()
-    }
-  }
-  function btnBuyClick() {
-    console.log(props.user);
-    if(props.user.isLogin){
-      // 구매사이트로 이동
-      // history.push('/login');
-    }else{
-      // 로그인 && 비회원 구매사이트로 이동
-      history.push('/login');
-    }
-  }
-
 
   return (
     <div className="detail_wrap">
@@ -127,7 +41,7 @@ function DetailPage1(props){
                   </tr>
                   <tr height="40px">
                     <td>제조사</td>
-                    <td>별빛담은</td>
+                    <td>모두의컴퓨터</td>
                   </tr>
                   <tr height="40px">
                     <td>상품코드</td>
@@ -160,8 +74,8 @@ function DetailPage1(props){
 
               <div className="detail_btn_wrap">
                 <button className="btn_detail"><span>🤍관심상품</span></button>
-                <button className="btn_detail" onClick={btnCartClick}>장바구니</button>
-                <button className="btn_detail red" onClick={btnBuyClick}>바로구매</button>
+                <button className="btn_detail">장바구니</button>
+                <button className="btn_detail red">바로구매</button>
               </div>
 
               <div style={{height:"90px", padding:"10px 0"}}></div>
@@ -275,9 +189,4 @@ function DetailPage1(props){
   )
 }
 
-function stateToProps(state){
-  return {
-    user : state.setUser
-  }
-}
-export default connect(stateToProps)(DetailPage1);
+export default DetailPage;
