@@ -121,7 +121,7 @@ function CartPage(props) {
       {
         cartList
         ?cartList.map((item, i)=>{
-          return <CartList item={item} selectList={selectList} setSelectList={setSelectList} cartList={cartList} setListPrice={setListPrice} setTotalPrice={setTotalPrice} index={i} key={i}></CartList>
+          return <CartList item={item} selectList={selectList} setSelectList={setSelectList} cartList={cartList} setCartList={setCartList} setListPrice={setListPrice} setTotalPrice={setTotalPrice} index={i} key={i}></CartList>
         })
         :<NonCartList></NonCartList>
       }
