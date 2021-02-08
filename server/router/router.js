@@ -412,23 +412,47 @@ router.post('/cart/add', (req, res)=>{
 
 router.post('/cart_detail/add', (req, res)=>{
   console.log('cart_detail/add 도착!');
-  var cartId = req.body.cartId;
+  var cartId = Number(req.body.cartId);
   var procNo = Number(req.body.procNo);
   var procName = req.body.procName;
   var procPrice = req.body.procPrice;
   var procCount = req.body.procCount;
   var currentTime = new Date();
 
+  db.beginTransaction((error)=>{
 
-  var sql = 'insert into cart_detail (cart_no, product_no, product_name, product_price, product_count, cart_create_date) values(?, ?, ?, ?, ?, ?)';
-  var params = [cartId, procNo, procName, procPrice, procCount, currentTime];
-  db.query(sql, params, (err, result)=>{
-    if(!err){
-      res.send({success:true});
-    }else{
-      console.log(err);
-    }
+    var sql = 'select * from cart_detail where cart_no = ? and product_no = ?';
+    var params = [cartId, procNo];
+
+    db.query(sql, params, (err, rows)=>{
+        if(!err){
+          if(rows.length > 0){
+            console.log(rows[0].product_count);
+            sql = 'update cart_detail set product_count = ? where cart_no = ? and product_no = ?';
+            params = [procCount + rows[0].product_count, cartId, procNo];
+            db.query(sql, params, (e, result)=>{
+              if(result.changedRows > 0){
+                res.send({success:true});
+              }else {
+                res.send({success:false});
+              }
+
+            });
+          }else {
+            sql = 'insert into cart_detail (cart_no, product_no, product_name, product_price, product_count, cart_create_date) values(?, ?, ?, ?, ?, ?)';
+            params = [cartId, procNo, procName, procPrice, procCount, currentTime];
+            db.query(sql, params, (err, result)=>{
+              if(!err){
+                res.send({success:true});
+              }else{
+                console.log(err);
+              }
+            });
+          }
+        }
+    });
   });
+
 });
 
 router.post('/cart_detail/delete', (req, res)=> {

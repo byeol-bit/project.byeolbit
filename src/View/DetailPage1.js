@@ -92,6 +92,24 @@ function DetailPage1(props){
       history.push('/login');
     }
   }
+  function btnUpClick() {
+    if(orderCount >= 99) return;
+
+    setOrderCount(orderCount+1);
+  }
+  function btnDownClick(e) {
+    if(orderCount <= 1) return;
+
+    setOrderCount(orderCount-1);
+  }
+  function btnCountChange(e) {
+    e.target.value=e.target.value.replace(/[^0-9]/g,'');
+
+    if(e.target.value > 99) e.target.value = 99;
+    if(e.target.value < 1) e.target.value = 1;
+
+    setOrderCount(Number(e.target.value));
+  }
 
 
   return (
@@ -144,8 +162,10 @@ function DetailPage1(props){
                   <tr height="40px">
                     <td>주문수량</td>
                     <td style={{position:"relative"}}>
-                      <input id="cbx_order" type="text" value={orderCount}/>
-                      <img src={cnt_bg2}/>
+                      <input id="cbx_order" type="text" value={orderCount} onChange={btnCountChange}/>
+                      <img src={cnt_bg2} style={{zIndex:"10"}}/>
+                      <button className="btnUpCount" onClick={btnUpClick}> </button>
+                      <button className="btnDownCount" onClick={btnDownClick}> </button>
                     </td>
                   </tr>
                 </tbody>

@@ -27,13 +27,35 @@
       text-align: left;
 
       #cbx_order{
-        width: 40px;
+        width: 30px;
         height: 25px;
         vertical-align: bottom;
         position: absolute;
-        margin-left: 45px;
-        border: none;
+        margin-left: 35px;
+        outline: none;
         margin-top: 2px;
+        text-align: center;
+      }
+
+      .btnUpCount{
+        position: absolute;
+        left: 72px;
+        top: 7px;
+        width: 25px;
+        height: 25px;
+        outline:none;
+        background: #fff;
+        opacity: 0;
+      }
+      .btnDownCount{
+        position: absolute;
+        left: 1px;
+        top: 7px;
+        width: 25px;
+        height: 25px;
+        outline:none;
+        background: #fff;
+        opacity: 0;
       }
     }
     .money_wrap{
