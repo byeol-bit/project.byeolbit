@@ -232,7 +232,9 @@ function App(props) {
             </Switch>
         </section>
       <footer>
-        footer
+        <div>
+          현재 개발중에 있는 홈페이지 입니다.
+        </div>
       </footer>
       </section>
     </div>

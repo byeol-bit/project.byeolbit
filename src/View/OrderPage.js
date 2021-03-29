@@ -14,41 +14,43 @@ function OrderPage(props) {
   const [isAddress, setIsAddress] = useState("");
   const [isZoneCode, setIsZoneCode] = useState();
   const [agree, setAgree] = useState(false);
-  const orderList = props.orderList;
+  const procList = props.orderList;
+  const [orderList, setOrderList] = useState([]);
+  const [useEffectFlag, setUseEffectFlag] = useState(true);
 
-  const instance = useRef(null);
+  // const instance = useRef(null);
 
-  const btnAddressClick = () => {
-    instance.current.open();
-  }
-
-  useEffect(()=>{
-    alert(props.orderList);
-  });
 
   useEffect(()=>{
-    instance.current = new daum.Postcode({
-        oncomplete: function(data) {
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+    if(!useEffectFlag) return;
 
-            let fullAddress = data.address;
-            let extraAddress = "";
-
-            if (data.addressType === "R") {
-              if (data.bname !== "") {
-                extraAddress += data.bname;
-              }
-              if (data.buildingName !== "") {
-                extraAddress +=
-                  extraAddress !== "" ? `, ${data.buildingName}` : data.buildingName;
-              }
-              fullAddress += extraAddress !== "" ? ` (${extraAddress})` : "";
+    console.log('flag', useEffectFlag);
+    axios.get('http://localhost:3000/api/products', null)
+    .then((res)=>{
+      if(res.data.success){
+        let temp = [];
+        for(let i = 0; i < procList.length; i++){
+          for(let j = 0; j < res.data.list.length; j++){
+            if(res.data.list[j].product_no === procList[i].procNo){
+              res.data.list[j].product_count = procList[i].procCount;
+              res.data.list[j].product_price = res.data.list[j].product_price.replace(',', '');
+              res.data.list[j].product_price = res.data.list[j].product_price.replace('원', '');
+              res.data.list[j].product_price = Number(res.data.list[j].product_price);
+              temp.push(res.data.list[j]);
             }
-            document.getElementById('addr_code').value = data.zonecode;
-            document.getElementById('addr_main').value = fullAddress;
+
+          }
         }
-    });
-  }, []);
+        setOrderList(temp);
+        setUseEffectFlag(false);
+      }
+    })
+    .catch()
+  }, [useEffectFlag]);
+
+  // useEffect(()=>{
+  //  instance.current =
+  // }, []);
 
   function checkedSameInfo(e){
     console.log(document.getElementById('oname').value);
@@ -116,10 +118,10 @@ function OrderPage(props) {
           </tbody>
         </table>
       </div>
-
+      {console.log('orderList', orderList)}
       {
         orderList
-        ? orderList.map((item, i)=>{return <OrderList></OrderList>})
+        ? orderList.map((item, i)=>{return <OrderList item={item}></OrderList>})
         : null
       }
 
@@ -185,7 +187,7 @@ function OrderPage(props) {
                 <td>
                   <div>
                     <input id="addr_code" type="text" value={isZoneCode} disabled/>
-                    <button id="btn_address" onClick={btnAddressClick}>우편번호</button>
+                    <button id="btn_address" onClick={RunDaumPostCode}>우편번호</button>
                   </div>
                   <div>
                     <input id="addr_main" type="text" value={isAddress} disabled/>
@@ -298,8 +300,8 @@ function OrderList(props) {
   var [procPrice, setProcPrice] = useState(0);
 
   useEffect(()=>{
-    setProcCount(0);
-    setProcPrice(0);
+    setProcCount(props.item.product_count);
+    setProcPrice(props.item.product_price);
   }, []);
 
   const cartTableListStyle = {
@@ -324,7 +326,7 @@ function OrderList(props) {
             <td width="640px">
               <div style={{textAlign:"left", marginLeft:"60px"}}>
                 <img src="" style={{width:"50px", height:"50px", backgroundSize:"contain", verticalAlign:"middle", marginRight:"30px"}}/>
-                상품
+                {props.item.product_subname}
               </div>
 
             </td>
