@@ -73,7 +73,12 @@ function setTime(state = new Date(), action){
   return getTimeStamp(state);
 }
 
-const orderList = [];
+const orderList = [
+  {
+    procNo: 0,
+    procCount: 0
+  }
+];
 
 function setOrderList(state = orderList, action){
   if(action.type === 'setList'){

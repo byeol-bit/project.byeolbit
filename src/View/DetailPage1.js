@@ -85,9 +85,11 @@ function DetailPage1(props){
   function btnBuyClick() {
     console.log(props.user);
     if(props.user.isLogin){
+      props.dispatch({type:'setList' ,payload:[{procNo:1, procCount:orderCount}]});
       // 구매사이트로 이동
-      // history.push('/login');
+      history.push('/order');
     }else{
+      props.dispatch({type:'setList' ,payload:[{procNo:1, procCount:orderCount}]});
       // 로그인 && 비회원 구매사이트로 이동
       history.push('/login');
     }
