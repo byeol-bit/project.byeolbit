@@ -17,7 +17,7 @@ function LoginPage(props) {
 
     e.preventDefault();
 
-    axios.post('http://localhost:3000/api/user/login', {id:id, pw:pw}, {withCredentials: true})
+    axios.post('http://3.34.57.203:3000/api/user/login', {id:id, pw:pw}, {withCredentials: true})
     .then((res)=>{
       if(!res.data.success){
         alert('존재하지 않는 아이디입니다.');

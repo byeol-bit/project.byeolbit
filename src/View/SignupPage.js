@@ -122,7 +122,7 @@ function SignupPage() {
       return;
     }
 
-    axios.get('http://localhost:3000/api/user', {params:{id:user}})
+    axios.get('http://3.34.57.203:3000/api/user', {params:{id:user}})
     .then((res)=>{
       if(res.data.length === 0){
         alert('사용 가능한 아이디입니다.');
@@ -162,7 +162,7 @@ function SignupPage() {
         sex = 'female';
       }
     }
-    axios.post('http://localhost:3000/api/signup', {
+    axios.post('http://3.34.57.203:3000/api/signup', {
       id:id,
       pw:pw,
       name:name,
