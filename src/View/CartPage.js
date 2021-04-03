@@ -21,7 +21,7 @@ function CartPage(props) {
   useEffect(async ()=>{
     if(deleteBtnClicked){
 
-      let res = await axios.get('http://localhost:3000/api/cart_detail', {params:{cartid:cartid}});
+      let res = await axios.get('http://3.34.57.203:3000/api/cart_detail', {params:{cartid:cartid}});
       console.log('res', res);
 
       setCartList(res.data.list);
@@ -74,7 +74,7 @@ function CartPage(props) {
     }
   }
   function deleteSelectedItem() {
-    axios.post('http://localhost:3000/api/cart_detail/delete', {cartId:cartid, list:selectList})
+    axios.post('http://3.34.57.203:3000/api/cart_detail/delete', {cartId:cartid, list:selectList})
     .then((res)=>{
       console.log(res.data);
       if(res.data.success){

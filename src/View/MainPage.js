@@ -10,7 +10,7 @@ function MainPage() {
 
   useEffect(() =>{
     console.log('메인페이지 작동!');
-    axios.get('http://localhost:3000/api/best-products', {})
+    axios.get('http://3.34.57.203:3000/api/best-products', {})
     .then((res)=>{
       if(res.data.success){
         console.log('메인페이지 데이터');

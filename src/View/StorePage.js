@@ -14,7 +14,7 @@ function StorePage() {
 
   useEffect(() =>{
     console.log('온라인스토어 작동!');
-    axios.get('http://localhost:3000/api/products', {})
+    axios.get('http://3.34.57.203:3000/api/products', {})
     .then((res)=>{
       if(res.data.success){
         console.log('온라인스토어 데이터');

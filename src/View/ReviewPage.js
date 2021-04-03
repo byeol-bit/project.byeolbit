@@ -7,7 +7,7 @@ function ReviewPage() {
   let [_review, setReview] = useState(null);
 
   useEffect(()=>{
-    axios.get('http://localhost:3000/api/review/category')
+    axios.get('http://3.34.57.203:3000/api/review/category')
     .then((res)=>{
       setReview(res.data);
     })
