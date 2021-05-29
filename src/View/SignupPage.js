@@ -162,7 +162,7 @@ function SignupPage() {
         sex = 'female';
       }
     }
-    axios.post('http://localhost:3000/api/signup', {
+    axios.post('http://3.34.57.203:3000/api/signup', {
       id:id,
       pw:pw,
       name:name,
