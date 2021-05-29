@@ -104,7 +104,7 @@ function UserInfo(props){
       }
     }
 
-    axios.post('http://localhost:3000/api/user/modify',
+    axios.post('http://3.34.57.203:3000/api/user/modify',
     {
       id:props.user.id,
       pw:pw,

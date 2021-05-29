@@ -2,13 +2,14 @@ const AWS = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 const moment = require('moment');
+const dotenv = require('dotenv');
 
-require('dotenv').config();
+dotenv.config({ path: '/home/ubuntu/server/project.byeolbit/.env' });
 
 const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_accessKEY,
   secretAccessKey: process.env.AWS_secretAccessKey,
-  region: process.env.region,
+  region: process.env.AWS_region,
   s3BucketEndpoint: false,
   endpoint: 'https://s3.amazonaws.com'
 

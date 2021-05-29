@@ -21,13 +21,13 @@ function DetailPage1(props){
 
 
     if(cartid === null){
-      axios.post('http://localhost:3000/api/cart/add', {userid:userid})
+      axios.post('http://3.34.57.203:3000/api/cart/add', {userid:userid})
       .then((res)=>{
         if(res.data.success){
           localStorage.setItem('cartid', res.data.cartid);
           cartid = localStorage.getItem('cartid');
 
-          axios.post('http://localhost:3000/api/cart_detail/add',
+          axios.post('http://3.34.57.203:3000/api/cart_detail/add',
             {
               cartId:cartid,
               procNo:1,
@@ -57,8 +57,7 @@ function DetailPage1(props){
       })
       .catch()
     }else{
-      console.log('11');
-      axios.post('http://localhost:3000/api/cart_detail/add',
+      axios.post('http://3.34.57.203:3000/api/cart_detail/add',
         {
           cartId:cartid,
           procNo:1,

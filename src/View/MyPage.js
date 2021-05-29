@@ -17,7 +17,7 @@ function MyPage(props) {
       let token = document.cookie.split('=')[1];
       if(token === undefined || token === null) history.push('/');
 
-      axios.post('http://localhost:3000/api/user/auth', {token:token}, {withCredentials: true})
+      axios.post('http://3.34.57.203:3000/api/user/auth', {token:token}, {withCredentials: true})
       .then((res)=>{
         if(res.data.auth){
           console.log('마이페이지 user 요청');
@@ -49,7 +49,7 @@ function MyPage(props) {
     e.target.classList.add('on');
   }
   function onClickLogout(){
-    axios.post('http://localhost:3000/api/user/logout', {})
+    axios.post('http://3.34.57.203:3000/api/user/logout', {})
     .then((res) =>{
       console.log(res.data);
       if(res.data.success){

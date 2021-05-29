@@ -25,7 +25,7 @@ function OrderPage(props) {
     if(!useEffectFlag) return;
 
     console.log('flag', useEffectFlag);
-    axios.get('http://localhost:3000/api/products', null)
+    axios.get('http://3.34.57.203:3000/api/products', null)
     .then((res)=>{
       if(res.data.success){
         let temp = [];
@@ -187,7 +187,7 @@ function OrderPage(props) {
                 <td>
                   <div>
                     <input id="addr_code" type="text" value={isZoneCode} disabled/>
-                    <button id="btn_address" onClick={RunDaumPostCode}>우편번호</button>
+                    <button id="btn_address" >우편번호</button>
                   </div>
                   <div>
                     <input id="addr_main" type="text" value={isAddress} disabled/>

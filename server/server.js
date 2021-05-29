@@ -3,8 +3,10 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const route = require('./router/router.js');
+const dotenv = require('dotenv');
 
-require('dotenv').config();
+dotenv.config({ path: '/home/ubuntu/server/project.byeolbit/.env' });
+
 const port = process.env.PORT;
 
 app.use(bodyParser.json());
