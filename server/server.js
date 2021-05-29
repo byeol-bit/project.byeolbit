@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const route = require('./router/router.js');
 const dotenv = require('dotenv');
 
-dotenv.config({ path: '/home/ubuntu/server/project.byeolbit/.env' });
+dotenv.config({ path: '/home/ubuntu/server/.env' });
+
 
 const port = process.env.PORT;
 

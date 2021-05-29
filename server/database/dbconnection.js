@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const dotenv = require('dotenv');
 
-dotenv.config({ path: '/home/ubuntu/server/project.byeolbit/.env' });
+dotenv.config({ path: '/home/ubuntu/server/.env' });
 
 
 const connection = mysql.createConnection({

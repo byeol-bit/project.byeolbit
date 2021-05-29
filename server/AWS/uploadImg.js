@@ -4,7 +4,7 @@ const multerS3 = require('multer-s3');
 const moment = require('moment');
 const dotenv = require('dotenv');
 
-dotenv.config({ path: '/home/ubuntu/server/project.byeolbit/.env' });
+dotenv.config({ path: '/home/ubuntu/server/.env' });
 
 const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_accessKEY,
