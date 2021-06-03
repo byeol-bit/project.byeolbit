@@ -112,7 +112,7 @@ function AnswerInfo(props) {
   }
 
   useEffect(()=>{
-    axios.get('http://localhost:3000/api/inquiry', {params:{id:props.user.id}})
+    axios.get('http://3.34.57.203:3000/api/inquiry', {params:{id:props.user.id}})
     .then((res)=>{
       if(res.data.success){
         setAnswerList(res.data.list);
@@ -162,7 +162,7 @@ function AnswerInfo(props) {
 function Modal(props) {
 
   function deleteInquiry(){
-    axios.post('http://localhost:3000/api/inquiry/delete', {list:props.list})
+    axios.post('http://3.34.57.203:3000/api/inquiry/delete', {list:props.list})
     .then((res)=>{
       if(res.data.success){
         console.log('삭제성공');

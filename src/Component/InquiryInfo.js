@@ -17,7 +17,7 @@ function InquiryInfo(props) {
     }
 
 
-    axios.post('http://localhost:3000/api/inquiry/add',
+    axios.post('http://3.34.57.203:3000/api/inquiry/add',
     {
       id:props.user.id,
       category:cbxValue[0].value,
