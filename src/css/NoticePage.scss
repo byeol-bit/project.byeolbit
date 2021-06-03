@@ -1,24 +1,97 @@
 .notice_wrap{
+  margin-top: 2rem;
+  font-family: NotoSans,Roboto,dotum,돋움,gulim,굴림,sans-serif;
+  width:840px;
   height:800px;
+  margin-left: auto;
+  margin-right: auto;
 
-  .notice_table{
-    margin: 0 auto;
-    margin-top: 20px;
-    width:840px;
-    padding: 50px 50px 50px 30px;
-    text-align: center;
-
-    th{
-      vertical-align: middle;
-      height: 30px;
-      border-top: 2px solid #151515;
-      border-bottom: 1px solid #d8d8d8;
+  .notice-title-wrap{
+    display: flex;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    justify-content: space-between;
+    .notice-title{
+      color: rgba(33,33,33, 1);
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      font-weight: bold;
+      display: block;
     }
-    tr{
-      height: 50px;
-      cursor: pointer;
-      border-bottom: 1px solid #ddd;
+    div{
+      display: flex;
+      form{
+        fieldset{
+          .search-wrap{
+            position: relative;
+            border: 1px solid #e0e0e0;
+
+            .n-search{
+              width: 100%;
+              padding-left: 2.2rem;
+              border-style: solid;
+              border-radius: .25rem;
+              -webkit-appearence: textfiled;
+              outline-offset: -2px;
+              border-width: 1px;
+              height: 2.5rem;
+              overflow: visible;
+            }
+            .search-image-wrap{
+              position: absolute;
+              pointer-events: none;
+              padding-left: .5rem;
+              padding-right: .5rem;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              align-items: center;
+              img{
+                display: inline-block;
+                color: rgba(189,189,189,1);
+                width: 1.5em;
+                height: 1.5em;
+                vertical-align: -.125em;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
+  ul{
+    li{
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      div{
+        .notice-full{
+          text-align: left;
+          font-weight: 600;
+          .notice-info-text{
+            a{
+              cursor: pointer;
+              .notice-title{
+                margin-top: .5rem;
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+                text-transform: uppercase;
+              }
+              .notice-content{
+                word-break: break-all;
+                color: rgba(117,117,117, 1);
+                margin-top: .5rem;
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+              }
+            }
+          }
+          .notice-sub-text{
+
+          }
+        }
+      }
+    }
+  }
 }

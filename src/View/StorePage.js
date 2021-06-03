@@ -21,7 +21,10 @@ function StorePage() {
         setItems(res.data.list);
       }
     })
-    .catch()
+    .catch(err => {
+      console.dir(err);
+    })
+
   }, []);
 
   return (

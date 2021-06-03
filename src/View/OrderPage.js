@@ -187,7 +187,7 @@ function OrderPage(props) {
                 <td>
                   <div>
                     <input id="addr_code" type="text" value={isZoneCode} disabled/>
-                    <button id="btn_address" onClick={RunDaumPostCode}>우편번호</button>
+                    <button id="btn_address">우편번호</button>
                   </div>
                   <div>
                     <input id="addr_main" type="text" value={isAddress} disabled/>
