@@ -15,7 +15,7 @@ function LoginPage(props) {
   function btnLogin(e){
     if(id === null || pw === null) return;
 
-    e.preventDefault();
+    // e.preventDefault();
 
     axios.post('http://3.34.57.203:3000/api/user/login', {id:id, pw:pw}, {withCredentials: true})
     .then((res)=>{

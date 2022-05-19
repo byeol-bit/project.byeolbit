@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import '../css/DetailPage.scss';
 import testimg from '../assets/images/test-img.png';
 import cnt_bg2 from '../assets/images/cnt_bg2.png';
+import product_detail from '../assets/images/product_detail.jpg';
 
 
 function DetailPage1(props){
@@ -185,7 +186,7 @@ function DetailPage1(props){
                 <button className="btn_detail" onClick={btnCartClick}>장바구니</button>
                 <button className="btn_detail red" onClick={btnBuyClick}>바로구매</button>
               </div>
-
+/*
               <div style={{height:"90px", padding:"10px 0"}}></div>
               <div className="detail_review_wrap">
                 <div className="detail_review_top">실시간 구매후기!</div>
@@ -198,6 +199,7 @@ function DetailPage1(props){
                   </ul>
                 </div>
               </div>
+*/
             </td>
           </tr>
         </tbody>
@@ -205,7 +207,9 @@ function DetailPage1(props){
 
       <div className="detail_item_info">
         <table id="item_nav_1"></table>
-        <div style={{height:"200px"}}></div>
+        <div>
+          <img src={product_detail}/>
+        </div>
         <table id="item_nav_2"></table>
         <div style={{height:"200px"}}></div>
         <table id="item_nav_3"></table>
