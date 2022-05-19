@@ -3,6 +3,70 @@ import '../css/NoticePage.scss';
 import imgSearch from '../assets/images/search.png';
 
 function NoticePage() {
+
+  const [pageNum, setPageNum] = useState(2);
+
+  function getPageNum(index){
+    let page = 1;
+    let countList = 10;
+    let countPage = 10;
+
+    let totalCount = 255;
+
+    let totalPage = totalCount / countList;
+
+    if(totalCount % countList > 0){
+      totalPage++;
+      totalPage = parseInt(totalPage, 10);
+    }
+
+    if(index === 'first'){
+      page = 1;
+      setPageNum(2);
+    }else if(index === 'before'){
+      if(pageNum - 4 <= 0){
+        setPageNum(2);
+        page = 1;
+      }else{
+        setPageNum(pageNum - 3);
+        page = pageNum - 3;
+      }
+
+    }else if(index === '-1'){
+      if(pageNum - 2 <= 0){
+        setPageNum(2);
+        page = 1;
+      }else{
+        setPageNum(pageNum - 1);
+        page = pageNum - 1;
+      }
+    }else if(index === '0'){
+      page = pageNum;
+    }else if(index === '1'){
+      if(pageNum + 1 >= totalPage){
+        setPageNum(totalPage - 1);
+        page = totalPage;
+      }else{
+        setPageNum(pageNum + 1);
+        page = pageNum + 1;
+      }
+    }else if(index === 'next'){
+      if(pageNum + 3 >= totalPage){
+        setPageNum(totalPage - 1);
+        page = totalPage;
+      }else{
+        setPageNum(pageNum + 3);
+        page = pageNum + 3;
+      }
+    }
+    else if(index === 'last'){
+      setPageNum(totalPage - 1);
+      page = totalPage;
+    }
+
+
+  }
+
   return (
     <div className="notice_wrap">
       <div class="notice-title-wrap">
@@ -85,6 +149,19 @@ function NoticePage() {
           </div>
         </li>
       </ul>
+      <div class="notice-bottom">
+        <div class="notice-nav-wrap">
+          <nav>
+            <span class="first" onClick={()=>{getPageNum('first')}}>처음</span>
+            <span class="before" onClick={()=>{getPageNum('before')}}>이전</span>
+            <span  onClick={()=>{getPageNum('-1')}}>{pageNum-1}</span>
+            <span  onClick={()=>{getPageNum('0')}}>{pageNum}</span>
+            <span  onClick={()=>{getPageNum('1')}}>{pageNum+1}</span>
+            <span class="next"  onClick={()=>{getPageNum('next')}}>다음</span>
+            <span class="last"  onClick={()=>{getPageNum('last')}}>끝</span>
+          </nav>
+        </div>
+      </div>
     </div>
   )
 }

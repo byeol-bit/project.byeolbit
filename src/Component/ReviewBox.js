@@ -13,7 +13,7 @@ function ReviewBox(props) {
   let reviewbox;
 
   useEffect(()=>{
-    axios.get('http://localhost:3000/api/review_detail', {params: {category: props.list.category}})
+    axios.get('http://3.34.57.203:3000/api/review_detail', {params: {category: props.list.category}})
     .then((res)=>{
       setComments(res.data);
     })

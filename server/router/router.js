@@ -7,8 +7,8 @@ const db = require('../database/dbconnection.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const JWT_SECRET='byeolbit';
 
-require('dotenv').config();
 
 router.post('/user/logout', (req, res)=>{
     console.log('/user/logout 도착');
@@ -21,7 +21,7 @@ router.post('/user/auth', (req,res)=>{
     console.log('/user/auth 도착');
 
     var token = req.body.token;
-    var data = jwt.verify(token, process.env.JWT_SECRET);
+    var data = jwt.verify(token, JWT_SECRET);
 
     var id = data.id;
     var sql = "select * from user where user_id=?";
@@ -89,7 +89,7 @@ router.post('/user/modify', (req,res)=>{
                           // jwt를 이용한 token 생성
                           jwt.sign(
                             payload,
-                            process.env.JWT_SECRET,
+                            JWT_SECRET,
                             {
                               // token 지속시간
                               expiresIn: '1h',
@@ -148,7 +148,7 @@ router.post('/user/login', (req,res)=>{
             console.log('작동');
             jwt.sign(
               payload,
-              process.env.JWT_SECRET,
+              JWT_SECRET,
               {
                 // token 지속시간
                 expiresIn: '1h',

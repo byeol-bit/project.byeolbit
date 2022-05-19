@@ -62,7 +62,7 @@ function ReviewTextBox(props) {
     let upload = content.map((picture, i)=>{
       let formData = new FormData();
       formData.append('file', picture);
-      return axios.post('http://localhost:3000/api/review_detail/uploadImgtoS3', formData);
+      return axios.post('http://3.34.57.203:3000/api/review_detail/uploadImgtoS3', formData);
     });
 
     axios.all(upload)
@@ -76,7 +76,7 @@ function ReviewTextBox(props) {
       }
 
       // add db
-      axios.post('http://localhost:3000/api/review_detail/add', {
+      axios.post('http://3.34.57.203:3000/api/review_detail/add', {
             star:starrate,
             comment:comment,
             category:props.category,

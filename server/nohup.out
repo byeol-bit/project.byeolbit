@@ -1,0 +1,216 @@
+server runningundefined
+server runningundefined
+server running3000
+/products 도착!
+Error: connect ECONNREFUSED 127.0.0.1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)
+    --------------------
+    at Protocol._enqueue (/home/ubuntu/server/project.byeolbit/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/ubuntu/server/project.byeolbit/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/ubuntu/server/project.byeolbit/node_modules/mysql/lib/Connection.js:116:18)
+    at Connection._implyConnect (/home/ubuntu/server/project.byeolbit/node_modules/mysql/lib/Connection.js:454:10)
+    at Connection.query (/home/ubuntu/server/project.byeolbit/node_modules/mysql/lib/Connection.js:196:8)
+    at /home/ubuntu/server/project.byeolbit/server/router/router.js:295:6
+    at Layer.handle [as handle_request] (/home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/layer.js:95:5) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 3306,
+  fatal: true
+}
+/products 도착!
+Error: Cannot enqueue Query after fatal error.
+    at Protocol._validateEnqueue (/home/ubuntu/server/project.byeolbit/node_modules/mysql/lib/protocol/Protocol.js:212:16)
+    at Protocol._enqueue (/home/ubuntu/server/project.byeolbit/node_modules/mysql/lib/protocol/Protocol.js:138:13)
+    at Connection.query (/home/ubuntu/server/project.byeolbit/node_modules/mysql/lib/Connection.js:198:25)
+    at /home/ubuntu/server/project.byeolbit/server/router/router.js:295:6
+    at Layer.handle [as handle_request] (/home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/layer.js:95:5)
+    at /home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/ubuntu/server/project.byeolbit/node_modules/express/lib/router/index.js:335:12) {
+  code: 'PROTOCOL_ENQUEUE_AFTER_FATAL_ERROR',
+  fatal: false
+}
+server runningundefined
+server running3000
+/best-products 도착!
+/products 도착!
+server running3000
+/products 도착!
+/products 도착!
+/best-products 도착!
+/best-products 도착!
+/best-products 도착!
+server running3000
+/best-products 도착!
+/best-products 도착!
+/best-products 도착!
+/best-products 도착!
+/products 도착!
+/best-products 도착!
+/products 도착!
+/best-products 도착!
+/best-products 도착!
+server running3000
+/best-products 도착!
+/best-products 도착!
+/home/ubuntu/server/project.byeolbit/server/database/dbconnection.js:4
+    host: byeol-bit-db.ci8ju2bnrarr.ap-northeast-2.rds.amazonaws.com,
+                                                 ^^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (internal/modules/cjs/loader.js:979:16)
+    at Module._compile (internal/modules/cjs/loader.js:1027:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at Object.<anonymous> (/home/ubuntu/server/project.byeolbit/server/router/router.js:6:12)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+/best-products 도착!
+/best-products 도착!
+server running3000
+/best-products 도착!
+server running3000
+/best-products 도착!
+/products 도착!
+/best-products 도착!
+/products 도착!
+/review/category 도착!
+/review/category 도착!
+/review/category 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+/review/category 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+/products 도착!
+cart/add 도착!
+/products 도착!
+/products 도착!
+cart_detail/add 도착!
+cart_detail 도착!
+/products 도착!
+cart_detail 도착!
+/products 도착!
+/review/category 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+/products 도착!
+cart_detail/add 도착!
+1
+cart_detail 도착!
+cart_detail 도착!
+cart_detail/delete 도착!
+cart_detail 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+cart_detail/delete 도착!
+/review/category 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+/products 도착!
+/review/category 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+cart_detail 도착!
+user/login 도착!
+작동
+작동
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNzaGt3dyIsInByb2ZpbGUiOiJodHRwczovL2J5ZW9sYml0LWJ1Y2tldC5zMy5hcC1ub3J0aGVhc3QtMi5hbWF6b25hd3MuY29tL2J5ZW9sLWJpdC91c2VyX21hbGUucG5nIiwicGhvbmUiOiIwMTAtOTI4OC00Mzg1IiwibmFtZSI6IuuwleyDgeyEoCIsInNleCI6Im1hbGUiLCJlbWFpbCI6InNzaGt3d0BuYXZlci5jb20iLCJpYXQiOjE2MjIwMzQ5MDMsImV4cCI6MTYyMjAzODUwM30.8bFAn1uEIQ5JyRDfhV3yS4zycGAEj9V2QW_Mthhzw_U
+/best-products 도착!
+/user/auth 도착
+inquiry 도착!
+inquiry 도착!
+inquiry 도착!
+/user/auth 도착
+/user/logout 도착
+/best-products 도착!
+user/login 도착!
+user/login 도착!
+user/login 도착!
+user/login 도착!
+작동
+작동
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNzaGt3dyIsInByb2ZpbGUiOiJodHRwczovL2J5ZW9sYml0LWJ1Y2tldC5zMy5hcC1ub3J0aGVhc3QtMi5hbWF6b25hd3MuY29tL2J5ZW9sLWJpdC91c2VyX21hbGUucG5nIiwicGhvbmUiOiIwMTAtOTI4OC00Mzg1IiwibmFtZSI6IuuwleyDgeyEoCIsInNleCI6Im1hbGUiLCJlbWFpbCI6InNzaGt3d0BuYXZlci5jb20iLCJpYXQiOjE2MjIwMzU2NjIsImV4cCI6MTYyMjAzOTI2Mn0.AMbe0TEexdxwjKPiEJ8X_eHmfJGuXyqUZcLasTtODTI
+/best-products 도착!
+/user/auth 도착
+/user/logout 도착
+/best-products 도착!
+user/login 도착!
+작동
+작동
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNzaGt3dyIsInByb2ZpbGUiOiJodHRwczovL2J5ZW9sYml0LWJ1Y2tldC5zMy5hcC1ub3J0aGVhc3QtMi5hbWF6b25hd3MuY29tL2J5ZW9sLWJpdC91c2VyX21hbGUucG5nIiwicGhvbmUiOiIwMTAtOTI4OC00Mzg1IiwibmFtZSI6IuuwleyDgeyEoCIsInNleCI6Im1hbGUiLCJlbWFpbCI6InNzaGt3d0BuYXZlci5jb20iLCJpYXQiOjE2MjIwMzU2ODIsImV4cCI6MTYyMjAzOTI4Mn0.e5KU6cR1AgIzMrIQQBYik-lsR1PfB-SW9b5j60_r7Cc
+/best-products 도착!
+/user/auth 도착
+/user/logout 도착
+/best-products 도착!
+user/login 도착!
+user/login 도착!
+user/login 도착!
+user/login 도착!
+user/login 도착!
+user/login 도착!
+작동
+작동
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNzaGt3dyIsInByb2ZpbGUiOiJodHRwczovL2J5ZW9sYml0LWJ1Y2tldC5zMy5hcC1ub3J0aGVhc3QtMi5hbWF6b25hd3MuY29tL2J5ZW9sLWJpdC91c2VyX21hbGUucG5nIiwicGhvbmUiOiIwMTAtOTI4OC00Mzg1IiwibmFtZSI6IuuwleyDgeyEoCIsInNleCI6Im1hbGUiLCJlbWFpbCI6InNzaGt3d0BuYXZlci5jb20iLCJpYXQiOjE2MjIwMzU3MTksImV4cCI6MTYyMjAzOTMxOX0.jp-_oX-qMPTRQd0yjDvr-DRroAZP-XBiuFUoEzRbyfY
+/best-products 도착!
+/products 도착!
+/user/auth 도착
+inquiry 도착!
+/user/logout 도착
+/best-products 도착!
+/products 도착!
+/review/category 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+/review/category 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+review_detail 도착!
+/products 도착!
+server running3000
+/best-products 도착!

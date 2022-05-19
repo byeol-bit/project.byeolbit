@@ -94,4 +94,29 @@
       }
     }
   }
+  .notice-bottom{
+    margin-top: 2rem;
+    .notice-nav-wrap{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      nav{
+        display: flex;
+        color: rgba(169,169,169,1);
+        font-size: .875rem;
+        line-height: 1.25rem;
+        font-weight: bold;
+        span{
+          margin-left: 1rem;
+          cursor: pointer;
+        }
+        span:hover{
+          color: #3D5AFE;
+        }
+        nav:first-child{
+          margin-left: 0px;
+        }
+      }
+    }
+  }
 }
