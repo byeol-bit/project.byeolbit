@@ -58,7 +58,10 @@ function DetailPage1(props){
       })
       .catch()
     }else{
+<<<<<<< HEAD
+=======
       console.log('11');
+>>>>>>> 4ec8bd8648b48816fb7e2351200394bfe4a703ad
       axios.post('http://3.34.57.203:3000/api/cart_detail/add',
         {
           cartId:cartid,
